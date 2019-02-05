@@ -13,6 +13,7 @@ type DTO struct {
 	status string
 }
 
+// InitDTO returns the db connection
 func InitDTO(dataSourceName string) (*sql.DB, error) {
 	if len(dataSourceName) == 0 {
 		dataSourceName = "root@/loa"
