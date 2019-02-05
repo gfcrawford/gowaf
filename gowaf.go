@@ -1,9 +1,13 @@
 package main
 
-import "fmt"
-import "github.com/gfcrawford/gowaf/dto"
+import (
+	"fmt"
+
+	"github.com/gfcrawford/gowaf/include/dto"
+)
 
 func main() {
 	fmt.Println("gowaf")
-	d := new dto{}
+	d := dto.Dto{}
+	fmt.Println(d)
 }
