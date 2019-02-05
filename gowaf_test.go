@@ -12,6 +12,6 @@ func TestGOWAF(t *testing.T) {
 }
 
 func TestDTO(t *testing.T) {
-	d := dto{}
+
 	fmt.Println("pass")
 }
