@@ -9,23 +9,29 @@ import (
 
 // DTO structure
 type DTO struct {
-	id     int
-	status string
+	ID     int
+	Status string
+	Error  error
+	DB     *sql.DB
 }
 
-// InitDTO returns the db connection
-func InitDTO(dataSourceName string) (*sql.DB, error) {
+// Init function initialises the base DTO struct
+func (d *DTO) Init(dataSourceName string) {
 	if len(dataSourceName) == 0 {
 		dataSourceName = "root@/loa"
 	}
 	db, err := sql.Open("mysql", dataSourceName)
-	checkErr(err)
-
-	return db, err
-
+	d.Status = "Initialised"
+	d.Error = err
+	d.DB = db
 }
-func checkErr(err error) {
-	if err != nil {
-		panic(err)
-	}
+
+// Destroy function closes the db connection in the DTO struct
+func (d *DTO) Destroy() {
+	d.DB.Close()
+}
+
+// Count all the objects in a table
+func (d *DTO) Count(whereClause ...string) int {
+	return 13
 }
