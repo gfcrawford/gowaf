@@ -1,6 +1,6 @@
-CREATE USER 'fred'@'localhost'
-  IDENTIFIED BY 'flintstone';
+CREATE USER 'Fred'@'localhost'
+  IDENTIFIED BY 'Flintstone';
 GRANT ALL
   ON loa.*
-  TO 'fred'@'localhost'
+  TO 'Fred'@'localhost'
   WITH GRANT OPTION;
