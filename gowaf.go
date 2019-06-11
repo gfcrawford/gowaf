@@ -25,7 +25,7 @@ func main() {
 	fmt.Println("gowaf")
 	d := new(dto.DTO)
 	fmt.Println(d.Status)
-	d.Init("root@/loa")
+	d.Init("Fred:Flintstone@/loa")
 	rows, err := d.DB.Query("SELECT * FROM player")
 	if err == nil {
 		for rows.Next() {
@@ -43,14 +43,4 @@ func main() {
 		}
 	}
 	fmt.Println(d.Count())
-	u := new(User)
-
-	u.Init("root@/loa")
-	u.username = "Fred"
-	u.password = "Flintstone"
-
-	fmt.Println(u.Fields())
-	//[getAge getId getName setAge setId setName]
-
-	//[id name age]
 }
