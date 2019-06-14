@@ -2,6 +2,7 @@ package dto
 
 import (
 	"database/sql"
+	"fmt"
 
 	// importing the SQL driver
 	_ "github.com/go-sql-driver/mysql"
@@ -33,5 +34,13 @@ func (d *DTO) Destroy() {
 
 // Count all the objects in a table
 func (d *DTO) Count(whereClause ...string) int {
-	return 13
+	rows, err := d.DB.Query("SELECT count(*) FROM player")
+	if err == nil {
+		for rows.Next() {
+            	var count int
+            	err = rows.Scan(&count)
+            	fmt.Println("Count:",count)
+        	}
+	}	
+	return 99
 }
